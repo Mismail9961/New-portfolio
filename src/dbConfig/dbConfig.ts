@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export async function connect() {
+ async function connect() {
   try {
     mongoose.connect(process.env.MONGO_URI!);
     const connection = mongoose.connection;
@@ -21,3 +21,5 @@ export async function connect() {
     console.error(error)
   }
 }
+
+export default connect

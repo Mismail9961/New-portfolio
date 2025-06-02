@@ -2,7 +2,7 @@
 
 import { NextResponse, NextRequest } from "next/server";
 import productModel from "@/models/projectModels";
-import { connect } from "@/dbConfig/dbConfig";
+import  connect  from "@/dbConfig/dbConfig";
 
 export async function POST(request: NextRequest) {
   try {
