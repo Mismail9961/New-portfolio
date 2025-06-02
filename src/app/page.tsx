@@ -288,24 +288,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Clients Section */}
-      <section className="py-16 px-8 md:px-16 bg-portfolioDark">
-        <h2 className="text-3xl font-bold mb-12 flex items-center">
-          <span className="text-portfolioGreen mr-2">+</span> My Clients
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
-          {/* Client logos */}
-          {Array.from({ length: 7 }).map((_, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 h-20 rounded-lg flex items-center justify-center"
-            >
-              <span className="text-gray-400">Client Logo</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Achievements Section */}
       <section id="achievements" className="py-16 px-8 md:px-16 bg-black">
         <h2 className="text-3xl font-bold mb-12 flex items-center">
