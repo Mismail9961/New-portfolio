@@ -1,25 +1,36 @@
+// src/dbConfig/dbConfig.ts
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 dotenv.config();
 
- async function connect() {
+let isConnected = false;
+
+async function connect() {
+  if (isConnected) {
+    console.log("Using cached MongoDB connection");
+    return;
+  }
+
   try {
-    mongoose.connect(process.env.MONGO_URI!);
+    await mongoose.connect(process.env.MONGO_URI!);
+
     const connection = mongoose.connection;
 
-    connection.on("Connected", () => {
-      console.log("Mongodb Connected Successfully");
+    connection.on("connected", () => {
+      console.log("MongoDB connected successfully");
     });
 
-    connection.on("Error", (err) => {
-      console.log("Mongodb Connection error" + err);
-      process.exit();
+    connection.on("error", (err) => {
+      console.error("MongoDB connection error:", err);
+      process.exit(1);
     });
+
+    isConnected = true;
   } catch (error) {
-    console.log("Something went wrong")
-    console.error(error)
+    console.error("MongoDB connection failed:", error);
+    throw error;
   }
 }
 
-export default connect
+export default connect;

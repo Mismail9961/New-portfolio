@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
       email === process.env.ADMIN_EMAIL &&
       password === process.env.ADMIN_PASSWORD
     ) {
-      const token = jwt.sign(email + password, process.env.JWT_SECRET!);
+      const token = jwt.sign(email + password, process.env.JWT_SECRET!,{expiresIn : "1h"});
       return NextResponse.json({ success: true, token });
     } else {
       return NextResponse.json({ success: false, message: "Invalid credentials" });

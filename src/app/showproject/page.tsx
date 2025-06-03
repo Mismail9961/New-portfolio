@@ -5,7 +5,7 @@ type Project = {
   _id: string;
   name: string;
   description: string;
-  uses: string;
+  uses: string[];
   link: string;
 };
 
@@ -17,19 +17,27 @@ export default function ProjectsPage() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("/api/users/showproject");
+        const token = localStorage.getItem("adminToken"); // get token from localStorage
+        console.log(token)
+
+        const res = await fetch("/api/users/showproject", {
+          headers: {
+            Authorization: token ? `Bearer ${token}` : "",
+          },
+        });
+
         const data = await res.json();
 
         if (data.success && Array.isArray(data.projects)) {
           setProjects(data.projects);
         } else {
-          setProjects([]); // fallback
+          setProjects([]);
           setError(data.message || "No projects found.");
         }
       } catch (err) {
         console.error(err);
         setError("Failed to fetch projects.");
-        setProjects([]); // fallback
+        setProjects([]);
       } finally {
         setLoading(false);
       }
@@ -56,8 +64,17 @@ export default function ProjectsPage() {
               <h2 className="text-xl font-semibold mb-2">{project.name}</h2>
               <p className="text-gray-700 mb-2">{project.description}</p>
               <p className="text-sm text-gray-500 mb-3">
-                <strong>Uses:</strong> {project.uses}
+                <strong>Uses:</strong>{" "}
+                {Array.isArray(project.uses)
+                  ? project.uses.map((tech, index) => (
+                      <span key={index}>
+                        {tech}
+                        {index !== project.uses.length - 1 && ", "}
+                      </span>
+                    ))
+                  : project.uses}
               </p>
+
               <a
                 href={project.link}
                 target="_blank"
