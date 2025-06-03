@@ -25,6 +25,7 @@ export default function AdminLogin() {
         router.push("/addproject");
       } else {
         setMessage("Invalid credentials");
+        router.push("/");
       }
     } catch (error: any) {
       setMessage(error.response?.data?.message || "Login failed");

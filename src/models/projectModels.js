@@ -1,4 +1,4 @@
-// src/models/projectModels.ts
+
 import mongoose, { Schema } from "mongoose";
 
 const projectSchema = new Schema({
@@ -8,7 +8,7 @@ const projectSchema = new Schema({
   link: { type: String, required: true },
 });
 
-// Prevent OverwriteModelError
+
 const productModel =
   mongoose.models.Project || mongoose.model("Project", projectSchema);
 
