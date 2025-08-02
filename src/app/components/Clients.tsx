@@ -30,10 +30,6 @@ const Clients = () => {
           <span className="text-portfolioGreen mr-2">+</span> Client&apos;s
           Testimonials
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Testimonial cards */}
-          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} />
-        </div>
       </section>
     </div>
   )

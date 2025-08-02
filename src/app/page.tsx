@@ -19,10 +19,8 @@ import {
 } from "react-icons/fa";
 import HeroSection from "./components/HeroSection";
 import Experince from "./components/Experince";
-import Achive from "./components/Achive";
-import Clients from "./components/Clients";
-import Contact from "./components/Contact";
 import Footer from "./components/LastFooter"
+import ContactForm from "./components/ContactForm";
 
 export default function Home() {
   return (
@@ -32,9 +30,7 @@ export default function Home() {
       <Skills/>
       <Experince/>
       <Project/>
-      <Achive/>
-      <Clients/>
-      <Contact/>
+      <ContactForm/>
       <Footer/>
     </main>
   );
