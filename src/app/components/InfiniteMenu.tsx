@@ -474,52 +474,44 @@ class App {
   ) {
     const defaultItems = [
       {
-        image: `https://i.pinimg.com/736x/97/01/01/9701018a8cc5af7a0f1b3004e95d7dc6.jpg`,
-        text: "Bridge",
+        image: `/images/tet1.png`,
+        text: "MediaForgeSolutions",
       },
       {
-        image: `https://i.pinimg.com/736x/97/01/01/9701018a8cc5af7a0f1b3004e95d7dc6.jpg`,
-        text: "Desk Setup",
+        image: `/images/te2.png`,
+        text: "TheCockingRoom",
       },
       {
-        image: `https://picsum.photos/seed/3/800/600?grayscale`,
-        text: "Waterfall",
+        image: `/images/tet3.png`,
+        text: "GFX Mansion",
       },
       {
-        image: `https://picsum.photos/seed/4/800/600?grayscale`,
-        text: "Strawberries",
+        image: `/images/tet4.png`,
+        text: "Mahvish",
       },
       {
-        image: `https://picsum.photos/seed/5/800/600?grayscale`,
-        text: "Deep Diving",
+        image: `/images/tet5.png`,
+        text: "Muhammad Faizan",
       },
       {
-        image: `https://picsum.photos/seed/16/800/600?grayscale`,
-        text: "Train Track",
+        image: `/images/tet6.png`,
+        text: "St George School",
       },
       {
-        image: `https://picsum.photos/seed/17/800/600?grayscale`,
-        text: "Santorini",
+        image: `/images/tet5.png`,
+        text: "Codex",
       },
       {
-        image: `https://picsum.photos/seed/8/800/600?grayscale`,
-        text: "Blurry Lights",
+        image: `/images/te2.png`,
+        text: "TheCockingRoom",
       },
       {
-        image: `https://picsum.photos/seed/9/800/600?grayscale`,
-        text: "New York",
+        image: `/images/tet1.png`,
+        text: "MediaForgeSolutions",
       },
       {
-        image: `https://picsum.photos/seed/10/800/600?grayscale`,
-        text: "Good Boy",
-      },
-      {
-        image: `https://picsum.photos/seed/21/800/600?grayscale`,
-        text: "Coastline",
-      },
-      {
-        image: `https://picsum.photos/seed/12/800/600?grayscale`,
-        text: "Palm Trees",
+        image: `/images/tet5.png`,
+        text: "Muhammad Faizan",
       },
     ];
     const galleryItems = items && items.length ? items : defaultItems;

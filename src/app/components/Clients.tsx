@@ -6,6 +6,7 @@ import { RiJavascriptFill } from "react-icons/ri";
 import { SiPython } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import { FiGithub } from "react-icons/fi";
+import CircularGallery from './InfiniteMenu';
 
 
 
@@ -31,26 +32,7 @@ const Clients = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Testimonial cards */}
-          {Array.from({ length: 3 }).map((_, index) => (
-            <div key={index} className="bg-gray-900 p-8 rounded-lg">
-              <div className="mb-6 text-2xl">
-                <span className="text-portfolioGreen">"</span>
-              </div>
-              <p className="text-gray-300 mb-6">
-                Testimonial text goes here. This is what the client said about
-                the work and experience working with Muhammad Nameer.
-              </p>
-              <div className="flex items-center">
-                <div className="mr-4">
-                  <div className="w-12 h-12 bg-gray-700 rounded-full"></div>
-                </div>
-                <div>
-                  <h4 className="font-bold">Client Name</h4>
-                  <p className="text-gray-400 text-sm">Position @ Company</p>
-                </div>
-              </div>
-            </div>
-          ))}
+          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} />
         </div>
       </section>
     </div>
