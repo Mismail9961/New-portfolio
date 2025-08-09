@@ -5,7 +5,7 @@ const lastfooter = () => {
     <div>
         <div>
         {/* Footer */}
-      <footer className="bg-portfolioDark text-gray-400 text-center py-6 border-t border-gray-800">
+      <footer className=" text-white text-center py-6 border-t border-gray-800">
         <div className="container mx-auto">
           <p>
             © {new Date().getFullYear()} Sheikh Muhammad Ismail. All rights reserved.

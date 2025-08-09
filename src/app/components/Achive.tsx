@@ -1,23 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FaHtml5 } from "react-icons/fa";
-import { IoLogoCss3 } from "react-icons/io5";
-import { RiJavascriptFill } from "react-icons/ri";
-import { SiPython } from "react-icons/si";
-import { TbBrandNextjs } from "react-icons/tb";
-import { FiGithub } from "react-icons/fi";
-
-
-
-import {
-  FaLinkedin,
-  FaGithub,
-  FaEnvelope,
-  FaWhatsapp,
-  FaTwitter,
-  FaBehance,
-} from "react-icons/fa";
-
 import React from 'react'
 
 const Achive = () => {

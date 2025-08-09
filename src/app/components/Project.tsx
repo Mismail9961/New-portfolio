@@ -5,38 +5,49 @@ import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 const Project = () => {
   const testimonials = [
     {
-      quote: "It was the best of times, it was the worst of times...",
-      name: "Charles Dickens",
-      title: "A Tale of Two Cities",
+      quote:
+        "Sheikh Muhammad Ismail’s full stack development skills transformed our company’s digital presence. His expertise in the MERN stack and Redux delivered a dynamic landing page and seamless dApp, significantly enhancing user engagement and simplifying our deployment process. A truly dedicated professional!",
+      name: "Muhammad Zeeshan",
+      title: "GFX Mansion",
     },
     {
-      quote: "To be, or not to be, that is the question...",
-      name: "William Shakespeare",
-      title: "Hamlet",
+      quote:
+        "Our business thrived thanks to Muhammad Ismail’s exceptional work as a full stack developer. His ability to craft intuitive frontend dApps and manage robust project repositories elevated our platform’s functionality, making customer interactions smoother and more efficient. Highly reliable and skilled!",
+      name: "Muhammad Mustafa",
+      title: "TheCockingRoom",
     },
     {
-      quote: "All that we see or seem is but a dream within a dream.",
-      name: "Edgar Allan Poe",
-      title: "A Dream Within a Dream",
+      quote:
+        "We had the pleasure of working with Ismail as a Full Stack Developer, and his contributions to our team have been nothing short of exceptional. From day one, Ismail demonstrated a deep understanding of both frontend and backend development, consistently delivering high-quality solutions across the entire tech stack.",
+      name: "Syed Ayan",
+      title: "St George School",
     },
     {
-      quote: "It is a truth universally acknowledged...",
-      name: "Jane Austen",
-      title: "Pride and Prejudice",
+      quote:
+        "One of Ismail's standout qualities is his ability to take ownership of projects. Whether it's building a feature-rich dashboard, integrating third-party services like Clerk, Cloudinary, or implementing real-time updates, he always brings thoughtful solutions and clean code to the table. His attention to detail and focus on user experience consistently elevated the quality of our product.",
+      name: "Muhammad Waqas",
+      title: "Core4Tech",
     },
     {
-      quote: "Call me Ishmael. Some years ago...",
-      name: "Herman Melville",
-      title: "Moby-Dick",
+      quote:
+        "Beyond technical skills, Ismail is an excellent communicator and a true team player. He collaborates well across departments, shares knowledge generously, and adapts quickly to changing priorities and feedback. His proactive attitude and problem-solving mindset made him a trusted and valuable member of the development team.",
+      name: "Mahvish",
+      title: "Freelancer",
     },
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center w-full px-4">
-      <h2 className="text-3xl font-bold mb-12 flex items-center text-center">
-        <span className="text-portfolioGreen mr-2">+</span> Client&apos;s Testimonials
+    <div className="px-8 md:px-16">
+      <h2 className="text-3xl font-bold mb-12 flex items-center">
+        <span className="text-portfolioGreen mr-2">+</span> Client Testimonials
       </h2>
-      <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
+      <div className="flex flex-col items-center px-8 md:px-16 justify-center w-full">
+        <InfiniteMovingCards
+          items={testimonials}
+          direction="right"
+          speed="normal"
+        />
+      </div>
     </div>
   );
 };

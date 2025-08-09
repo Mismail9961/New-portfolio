@@ -25,10 +25,10 @@ const ContactForm = () => {
     // Backend submission logic here
   };
   return (
-    <div className='h-[150vh] flex items-center justify-center w-full'>
-      <div className="flex flex-col md:flex-row items-stretch justify-center h-[100vh] rounded-2xl shadow-xl p-6 md:p-10 max-w-8xl mx-auto">
+    <div className='h-[92vh] flex items-center justify-center w-full'>
+      <div className="flex flex-col md:flex-row items-stretch justify-center h-[90vh] p-6 md:p-10 max-w-8xl mx-auto">
       {/* Left Section */}
-      <div className="w-full h-[117vh] md:w-1/2 bg-gradient-to-b from-blue-600 to-blue-900 rounded-xl p-10 text-white flex flex-col justify-center">
+      <div className="w-full rounded-r-[0px] rounded-l-[33px] h-[92vh] md:w-1/2 bg-gradient-to-b from-blue-600 to-blue-900 rounded-xl p-10 text-white flex flex-col justify-center">
         <h2 className="text-3xl font-bold mb-4">Let's Talk Marketing</h2>
         <p className="text-md leading-relaxed">
           Whether you're looking to scale up your social media, launch targeted ad campaigns,
@@ -39,7 +39,7 @@ const ContactForm = () => {
       {/* Right Section - Contact Form */}
       <form
         onSubmit={handleSubmit}
-        className="w-full md:w-1/2 h-[90vh] bg-black text-white p-6 md:p-10 space-y-5"
+        className="w-full md:w-1/2 h-[80vh] rounded-r-[33px] bg-black text-white p-6 md:p-10 space-y-5"
       >
         <div className="grid grid-cols-1 gap-4">
           <div>

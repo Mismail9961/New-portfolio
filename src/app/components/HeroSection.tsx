@@ -23,10 +23,10 @@ const HeroSection = () => {
         <p className="text-lg mb-2 text-white">Hello I&apos;m</p>
         <h1 className="text-5xl font-bold mb-4 text-white">Muhammad Ismail</h1>
         <h2 className="text-3xl font-semibold mb-6 text-white">
-          MERN Stack Developer
+          Full Stack Developer
         </h2>
         <p className="text-gray-300 mb-8">
-          Highly motivated and detail-oriented MERN Stack Developer with a
+          Highly motivated and detail-oriented Full Stack Developer with a
           strong foundation in full-stack web development and a passion for
           integrating AI-driven solutions...
         </p>
