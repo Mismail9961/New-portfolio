@@ -6,7 +6,6 @@ import Experince from "./components/Experince";
 import Footer from "./components/LastFooter"
 import ContactForm from "./components/ContactForm";
 import NewProject from "./components/NewProject";
-import Cards from "./components/Cards";
 import Talk from "./components/Talk";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white">
       <Navbar />
       <HeroSection/>
-      <Cards/>
       <Skills/>
       <Experince/>
       <NewProject/>
