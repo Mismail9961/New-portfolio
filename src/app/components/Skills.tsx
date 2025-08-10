@@ -97,8 +97,8 @@ const Skills = () => {
             <span>linux </span>
           </div>
           <div className="p-4 rounded text-center flex items-center justify-center flex-col">
-            <SiNetlify className="h-20 w-20" />
-            <span>Netlify </span>
+            <FiGithub className="h-20 w-20" />
+            <span>Github </span>
           </div>
         </div>
       </section>
