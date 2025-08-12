@@ -37,18 +37,21 @@ const Project = () => {
   ];
 
   return (
-    <div className="px-8 md:px-16">
-      <h2 className="text-3xl font-bold mb-12 flex items-center">
+    <section className="px-4 h-[70vh] sm:px-8 md:px-16 max-w-7xl mx-auto">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-10 flex items-center">
         <span className="text-portfolioGreen mr-2">+</span> Client Testimonials
       </h2>
-      <div className="flex flex-col items-center px-8 md:px-16 justify-center w-full">
-        <InfiniteMovingCards
-          items={testimonials}
-          direction="right"
-          speed="normal"
-        />
+      <div className="w-full flex justify-center">
+        <div className="w-full max-w-[100%] sm:max-w-[90%] md:max-w-[80%]">
+          <InfiniteMovingCards
+            items={testimonials}
+            direction="right"
+            speed="normal"
+            pauseOnHover
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

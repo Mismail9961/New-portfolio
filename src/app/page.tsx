@@ -10,7 +10,7 @@ import Talk from "./components/Talk";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen w-full bg-black text-white">
       <Navbar />
       <HeroSection/>
       <Skills/>

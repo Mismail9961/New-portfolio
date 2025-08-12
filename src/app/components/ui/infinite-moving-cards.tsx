@@ -22,15 +22,28 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const [start, setStart] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    addAnimation();
+    // Detect prefers-reduced-motion
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+    const handler = () => setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handler);
+
+    if (!mediaQuery.matches) {
+      addAnimation();
+    }
+
+    return () => mediaQuery.removeEventListener("change", handler);
   }, []);
-  const [start, setStart] = useState(false);
+
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
+      // Clone once
       scrollerContent.forEach((item) => {
         const duplicatedItem = item.cloneNode(true);
         if (scrollerRef.current) {
@@ -38,27 +51,22 @@ export const InfiniteMovingCards = ({
         }
       });
 
-      getDirection();
-      getSpeed();
+      setDirection();
+      setSpeed();
       setStart(true);
     }
   }
-  const getDirection = () => {
+
+  function setDirection() {
     if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards",
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse",
-        );
-      }
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        direction === "left" ? "normal" : "reverse"
+      );
     }
-  };
-  const getSpeed = () => {
+  }
+
+  function setSpeed() {
     if (containerRef.current) {
       if (speed === "fast") {
         containerRef.current.style.setProperty("--animation-duration", "20s");
@@ -68,27 +76,29 @@ export const InfiniteMovingCards = ({
         containerRef.current.style.setProperty("--animation-duration", "80s");
       }
     }
-  };
+  }
+
   return (
     <div
       ref={containerRef}
       className={cn(
         "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
-        className,
+        className
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
           "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
-          start && "animate-scroll",
-          pauseOnHover && "hover:[animation-play-state:paused]",
+          start && !prefersReducedMotion && "animate-scroll",
+          pauseOnHover && "hover:[animation-play-state:paused]"
         )}
+        style={{ willChange: "transform" }}
       >
         {items.map((item, idx) => (
           <li
             className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 md:w-[450px] dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
-            key={item.name}
+            key={`${item.name}-${idx}`} // better unique key if names repeat
           >
             <blockquote>
               <div
@@ -112,6 +122,27 @@ export const InfiniteMovingCards = ({
           </li>
         ))}
       </ul>
+
+      {/* Add CSS in your global styles or via a CSS module */}
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll {
+          animation-name: scroll;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-duration: var(--animation-duration, 40s);
+          animation-direction: var(--animation-direction, normal);
+          animation-play-state: running;
+        }
+      `}</style>
     </div>
   );
 };

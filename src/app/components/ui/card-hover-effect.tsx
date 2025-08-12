@@ -1,13 +1,12 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
-
 import { useState } from "react";
 
 export const HoverEffect = ({
   items,
   className,
 }: {
-  items: { title: string; description: React.ReactNode; link: string }[]
+  items: { title: string; description: React.ReactNode; link: string }[];
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -20,16 +19,26 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <a
+        // Changed from <a> to <div> to avoid nested <a> tags
+        <div
           key={item?.link}
-          className="relative group  block p-2 h-full w-full"
+          className="relative group block p-2 h-full w-full cursor-pointer"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
+          // Optional: if you want entire card clickable, you can add onClick here
+          onClick={() => window.open(item.link, "_blank")}
+          role="link"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              window.open(item.link, "_blank");
+            }
+          }}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -47,7 +56,7 @@ export const HoverEffect = ({
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
-        </a>
+        </div>
       ))}
     </div>
   );
@@ -73,6 +82,7 @@ export const Card = ({
     </div>
   );
 };
+
 export const CardTitle = ({
   className,
   children,
@@ -86,6 +96,7 @@ export const CardTitle = ({
     </h4>
   );
 };
+
 export const CardDescription = ({
   className,
   children,
@@ -93,14 +104,15 @@ export const CardDescription = ({
   className?: string;
   children: React.ReactNode;
 }) => {
+  // Changed from <p> to <div> to allow nested divs without invalid HTML
   return (
-    <p
+    <div
       className={cn(
         "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
         className
       )}
     >
       {children}
-    </p>
+    </div>
   );
 };

@@ -52,7 +52,6 @@ export default function ProjectsPage() {
     link: project.link,
     description: (
       <div className="space-y-3 text-sm text-zinc-600">
-        {/* Tech stack tags */}
         {project.uses?.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {project.uses.map((tech, index) => (
@@ -66,30 +65,27 @@ export default function ProjectsPage() {
           </div>
         )}
 
-        {/* Description */}
         <div className="leading-relaxed">{project.description}</div>
 
-        {/* External link text */}
         <div className="flex justify-end">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => window.open(project.link, "_blank")}
             className="inline-flex items-center text-xs text-blue-600 font-medium hover:underline"
           >
             Visit Project <FiArrowUpRight className="ml-1" />
-          </a>
+          </button>
         </div>
       </div>
     ),
   }));
 
   return (
-    <section className="w-full h-[70vh] px-8 md:px-16">
-      <h2 className="text-3xl font-bold flex items-center">
+    <section className="w-full min-h-[70vh] px-4 sm:px-8 md:px-16 py-10 md:py-16">
+      <h2 className="text-3xl font-bold flex items-center mb-6 md:mb-10">
         <span className="text-portfolioGreen mr-2">+</span> My Projects
       </h2>
-      <HoverEffect items={hoverProjects} />
+      <HoverEffect items={hoverProjects} className="gap-6" />
     </section>
   );
 }
