@@ -59,7 +59,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="max-w-xl mx-auto mb-12 text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed"
+          className="max-w-[90%] mx-auto mb-12 text-sm sm:text-lg md:text-[25px] text-gray-300 leading-relaxed"
         >
           Highly motivated and detail-oriented Full Stack Developer with a strong foundation in
           full-stack web development and a passion for integrating AI-driven solutions to create
